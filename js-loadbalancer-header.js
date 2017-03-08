@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>loadbalancer test</title>
+    
+
+
+<script type="text/javascript">
 function loadjscssfile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
         var fileref=document.createElement('script')
@@ -18,9 +27,9 @@ function loadbalance(filename, filetype){
 
 
  
-  var ticket = Math.floor(Math.random() * (1000 - 0 + 1)) + 0;
-  var cdnhosts = ["1.css","1.css","2.css","3.css"];
-  var cdnhoststickets = ["0","200","666","999","10000"];
+  var ticket = Math.floor(Math.random() * (10000 - 0 + 1)) + 0;
+  var cdnhosts = ["http://cdn1.test.test/","http://cdn1.test.test/","http://cdn2.test.test/","http://cdn3.test.test/"];
+  var cdnhoststickets = ["0","3333 ","6666","9999","100000"];
   
   console.log(ticket);
   
@@ -28,9 +37,9 @@ function loadbalance(filename, filetype){
   var whilelimiter = (cdnhosts.length)+1;
   while ( whilelooper < whilelimiter) {
   
-  if ((cdnhoststickets[whilelooper-1] < ticket) && (cdnhoststickets[whilelooper+1] > ticket)){
+  if (cdnhoststickets[whilelooper] > ticket){
     
-     loadjscssfile(cdnhosts[whilelooper], "css");
+     loadjscssfile(cdnhosts[whilelooper] + filename, "css");
      console.log("WAAAAAAAAAAAA")
      whilelooper = 3000000
    }
@@ -49,3 +58,14 @@ function loadbalance(filename, filetype){
 
  
 loadbalance("1.css", "css") //dynamically load and add this .js file.
+
+</script>
+
+  </head>
+  <body>
+  asdadsuhads9huhuoadsh
+  </body>
+
+
+
+</html>
